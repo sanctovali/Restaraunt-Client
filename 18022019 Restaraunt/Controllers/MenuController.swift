@@ -24,6 +24,7 @@ class MenuController {
 	
 	func fetchCategories(completion: @escaping ([String]?) -> Void) {
 		let categoryURL = baseURL.appendingPathComponent("categories")
+		print(categoryURL)
 		let task = URLSession.shared.dataTask(with: categoryURL) { data, _, _ in
 			guard let data = data else {
 				print("Error in method \(#function): Can't get Categories")

@@ -31,7 +31,6 @@ class MenuItemDetailViewController: UIViewController {
 	}
 	
 	func setupUI() {
-		navigationItem.backBarButtonItem?.title = "Вернуться"
 		addToOrderButton.layer.cornerRadius = 5
 	}
 	

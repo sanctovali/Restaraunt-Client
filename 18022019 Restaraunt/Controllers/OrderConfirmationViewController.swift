@@ -15,7 +15,8 @@ class OrderConfirmationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        timeRemainingLabel.text = "Thank you for your order!  Your wait time is \(minutes!) minutes."
+        self.navigationItem.hidesBackButton = true
+       // timeRemainingLabel.text = "Thank you for your order!  Your wait time is \(minutes!) minutes."
+		timeRemainingLabel.text = "Спасибо за ваш заказ!  Все будет готово через \(minutes!) минут."
     }
 }

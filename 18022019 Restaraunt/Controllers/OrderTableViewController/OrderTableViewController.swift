@@ -23,8 +23,10 @@ class OrderTableViewController: UITableViewController {
             object: nil
         )
     }
+
 	
 	func setupUI() {
+		
 		tableView.register(UINib.init(nibName: "OrderItemCell", bundle: nil), forCellReuseIdentifier: OrderItemCell.cellIdentifier)
 		tableView.estimatedRowHeight = 60
 		tableView.rowHeight = UITableView.automaticDimension
@@ -50,19 +52,26 @@ class OrderTableViewController: UITableViewController {
     }
     
     @IBAction func submitTapped() {
-        let menuItems = MenuController.shared.order.menuItems
-        let orderCount = menuItems.count
+		let keys = MenuController.shared.order.menuItems.keys
+		let menuItems = MenuController.shared.order.menuItems
+		for menuItem in keys {
+			if menuItems[menuItem] == 0 {
+				MenuController.shared.order.menuItems.removeValue(forKey: menuItem)
+			}
+		}
+		tableView.reloadData()
+        //let orderCount = menuItems.count
         let orderTotal = menuItems.reduce(0) { $0 + ($1.key.price * Double($1.value)) }
         let formattedOrder = String(format: "%.2f", orderTotal) + "\u{20BD}"
         
         let alert = UIAlertController(
-            title: "Confirm Order",
-            message: "Your total is \(orderCount) item(s) for \(formattedOrder)",
+            title: "Подтвердите заказ",
+            message: "Сумма вашего заказа \(formattedOrder)",
             preferredStyle: .alert
         )
         
         alert.addAction(UIAlertAction(
-            title: "Submit",
+            title: "Заказать",
             style: .default,
             handler: { _ in
                 self.uploadOrder()
@@ -70,7 +79,7 @@ class OrderTableViewController: UITableViewController {
         ))
         
         alert.addAction(UIAlertAction(
-            title: "Cancel",
+            title: "Вурнуться",
             style: .cancel,
             handler: nil
         ))

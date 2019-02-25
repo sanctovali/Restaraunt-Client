@@ -79,7 +79,7 @@ class OrderTableViewController: UITableViewController {
         ))
         
         alert.addAction(UIAlertAction(
-            title: "Вурнуться",
+            title: "Вернуться",
             style: .cancel,
             handler: nil
         ))

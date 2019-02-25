@@ -207,6 +207,7 @@
                 <navigationController id="Z31-t4-r5H" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="menu" image="menu" id="jy0-mP-GuK"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4G6-Dw-LIc">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -312,7 +313,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qA1-11-3kO">
                                         <rect key="frame" x="0.0" y="38" width="288" height="30"/>
-                                        <state key="normal" title="Отменить"/>
+                                        <state key="normal" title="Вернуться"/>
                                         <connections>
                                             <segue destination="VFp-u4-UCs" kind="unwind" identifier="DismissConfirmation" unwindAction="unwindWithSegue:" id="17Z-CE-8gK"/>
                                         </connections>
